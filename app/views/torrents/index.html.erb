@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="alert alert-info">
+    <p>This is for browsing old nyaa torrents only</p>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped torrent-list">
+      <thead>
+        <tr>
+          <th class="hdr-category text-center" style="width:80px;">
+            <div>Category</div>
+          </th>
+          <th class="hdr-name text-center" style="width:auto;">
+            <div>Name</div>
+          </th>
+          <th class="hdr-comments text-center sorting" title="Comments" style="width:50px;">
+            <a href="#"></a>
+            <i class="fa fa-comments-o"></i>
+          </th>
+          <th class="hdr-link text-center" style="width:70;">
+            <div>Link</div>
+          </th>
+          <th class="hdr-size text-center sorting" style="width:100px;">
+            <a href="#"></a>
+            <div>Size</div>
+          </th>
+          <th class="hdr-date text-center sorting_desc" title="In local time" style="width:140px;">
+            <a href="#"></a>
+            <div>Date</div>
+          </th>
+          <th class="hdr-seeders text-center sorting" title="Seeders" style="width:50px;">
+            <a href="#"></a>
+            <i class="fa fa-arrow-up"></i>
+          </th>
+          <th class="hdr-leechers text-center sorting" title="Leechers" style="width:50px;">
+            <a href="#"></a>
+            <i class="fa fa-arrow-down"></i>
+          </th>
+          <th class="hdr-downloads text-center sorting" title="Completed downloads" style="width:50px;">
+            <a href="#"></a>
+            <i class="fa fa-check"></i>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @torrents %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="center">
+  </div>
+</div>

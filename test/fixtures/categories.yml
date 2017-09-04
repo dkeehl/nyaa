@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
+audio:
+  name: Audio
 
-two:
-  name: MyText
+anime:
+  name: Anime

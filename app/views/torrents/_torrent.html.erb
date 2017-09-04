@@ -1,0 +1,29 @@
+<tr class="default">
+  <td style="padding:0 4px;">
+    <a href="#" title="<%= torrent.full_category_name %>">
+      <%= category_icon torrent %>
+    </a>
+  </td>
+
+  <td colspan="2">
+    <%= link_to torrent.name, torrent_path(torrent), title: torrent.name %>
+  </td>
+
+  <td class="text-center" style="white-space: nowrap;">
+    <a href="<%= torrent.download_link %>">
+      <i class="fa fa-fw fa-download"></i>
+    </a>
+
+    <a href="<%= torrent.magnet_link %>">
+      <i class="fa fa-fw fa-magnet"></i>
+    </a>
+  </td>
+      
+  <td class="text-center"><%= torrent.size %></td>
+  <td class="text-center" title="<%= "#{time_ago_in_words torrent.created_at} ago" %>">
+    <%= torrent.created_at.strftime "%Y-%m-%d %H:%m" %>
+  </td>
+  <td class="text-center" style="color: green;"><%= torrent.seeders %></td>
+  <td class="text-center" style="color: red;"><%= torrent.leechers %></td>
+  <td class="text-center"><%= torrent.downloads %></td>
+</tr>
