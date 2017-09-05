@@ -10,61 +10,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" class="navbar-brand">Nyaa</a>
-        </div>
-
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Upload</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">RSS</a></li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>
-                Guest
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#"><i class="fa fa-sign-in fa-fw"></i>Login</a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-pencil fa-fw"></i>Register</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
-          <%= form_tag '/', method: :get, class: 'navbar-form navbar-right form' do %>
-            <div class="input-group search-container">
-              
-              <%= text_field_tag :q, '', placeholder: 'Search...' %>
-              <div class="input-group-btn search-btn">
-                <%= button_tag class: 'btn btn-primary' do %>
-                  <i class="fa fa-fw fa-search"></i>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-          
-        </div>
-      </div>
-    </nav>
+    <%= render 'layouts/navbar' %>
 
     <%= yield %>
 
-    <footer style="text-align: center;">
-      <p>
-        Dark Mode:
-        <a id="themeToggle" href="#">Toggle</a>
-      </p>
-    </footer>
-
+    <%= render 'layouts/footer' %>
   </body>
 </html>

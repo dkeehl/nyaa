@@ -11,6 +11,8 @@ class Torrent < ApplicationRecord
 
   default_scope -> { order created_at: :desc }
 
+  self.per_page = 100
+
   def full_category_name
     "#{category.name} - #{sub_category.name}"
   end

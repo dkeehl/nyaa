@@ -17,7 +17,7 @@
             <a href="#"></a>
             <i class="fa fa-comments-o"></i>
           </th>
-          <th class="hdr-link text-center" style="width:70;">
+          <th class="hdr-link text-center" style="width:70px;">
             <div>Link</div>
           </th>
           <th class="hdr-size text-center sorting" style="width:100px;">
@@ -50,5 +50,6 @@
   </div>
 
   <div class="center">
+    <%= will_paginate @torrents, previous_label: '«', next_label: '»' %>
   </div>
 </div>

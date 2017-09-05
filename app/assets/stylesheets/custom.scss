@@ -1,4 +1,63 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "bootstrap-select";
 
+.center {
+  text-align: center;
+}
+
+div.pagination {
+  margin: 0;
+}
+
+table.torrent-list {
+  > tbody {
+    > tr {
+      > td {
+        white-space: nowrap;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 603px;
+      }
+    }
+  }
+
+  .hdr-comments {
+    border-left: hidden;
+    font-size: medium;
+  }
+
+  thead {
+    th {
+      position: relative;
+
+      &.sorting, &.sorting_asc, &.sorting_desc {
+        &::after {
+          position: absolute;
+          top: 12px;
+          right: 8px;
+          display: block;
+          font-family: FontAwesome;
+        }
+      }
+
+      &.sorting::after {
+        content: "\f0dc";
+        color: #808080;
+        font-size: 0.85em;
+      }
+
+      &.sorting_desc::after {
+        content: "\f0dd";
+      }
+
+      &.sorting_asc::after {
+        content: "\f0de";
+      }
+    }
+  }
+
+
+}
