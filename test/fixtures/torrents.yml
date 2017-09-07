@@ -1,1 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+<% 50.times do |n| %>
+raw_anime_<%= n %>:
+  name: raw_anime_<%= n %> 
+  torrent_hash: haaaaaaaaash
+  category: anime
+  sub_category: raw
+  status: normal
+<% end %>
+
+<% 100.times do |n| %>
+sub_anime_<%= n %>:
+  name: sub_anime_<%= n %> 
+  torrent_hash: haaaaaaaaash
+  category: anime
+  sub_category: en_trans
+  status: normal
+<% end %>

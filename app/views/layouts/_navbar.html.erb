@@ -32,15 +32,26 @@
       <%= form_tag '/', method: :get, class: 'navbar-form navbar-right form' do %>
         <div class="input-group search-container">
           <div id="navFilter-criteria" class="input-group-btn nav-filter">
-            <div class="btn-group bootstrap-select show-tick" style="width:120px;">
-
-            </div>
+            <select class="selectpicker show-tick" title="Filter" data-width="120px" name="f" >
+              <option class="bs-title-option" value="">Filter</option>
+              <option value="0" title="No filter" selected="">No filter</option>
+              <option value="1" title="No remakes">No remakes</option>
+              <option value="2" title="Trusted only">Trusted only</option>
+            </select>
           </div>
+
+          <div id="navFilter-category" class="input-group-btn nav-filter">
+            <select class="selectpicker show-tick" title="Category" data-width="130px" name="c">
+              <option class="bs-title-option" value="">Category</option>
+              <option value="0_0" title="All categories" selected="">All categories</option>
+            </select>
+          </div>
+
           <%= text_field_tag :q, '', placeholder: 'Search...', class: 'form-control search-bar' %>
           <div class="input-group-btn search-btn">
-            <%= button_tag class: 'btn btn-primary' do %>
+            <button class="btn btn-primary" type="submit">
               <i class="fa fa-fw fa-search"></i>
-            <% end %>
+            </button>
           </div>
         </div>
       <% end %>

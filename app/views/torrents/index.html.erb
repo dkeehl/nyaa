@@ -4,7 +4,7 @@
   </div>
 
   <div class="table-responsive">
-    <table class="table table-bordered table-striped torrent-list">
+    <table class="table table-bordered table-striped table-hover torrent-list">
       <thead>
         <tr>
           <th class="hdr-category text-center" style="width:80px;">
@@ -49,7 +49,7 @@
     </table>
   </div>
 
-  <div class="center">
+  <div class="text-center">
     <%= will_paginate @torrents, previous_label: '«', next_label: '»' %>
   </div>
 </div>

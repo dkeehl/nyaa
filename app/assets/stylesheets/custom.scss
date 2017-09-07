@@ -3,10 +3,6 @@
 @import "font-awesome";
 @import "bootstrap-select";
 
-.center {
-  text-align: center;
-}
-
 div.pagination {
   margin: 0;
 }
@@ -59,5 +55,19 @@ table.torrent-list {
     }
   }
 
-
 }
+
+.bootstrap-select {
+  button {
+    border-radius: 0;
+    border-right: 0;
+  }
+}
+
+#navFilter-criteria {
+  button {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}
+   
