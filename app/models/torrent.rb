@@ -41,4 +41,11 @@ class Torrent < ApplicationRecord
     0
   end
 
+  def created_at_short
+    created_at.strftime '%Y-%m-%d %H:%m' 
+  end
+
+  def information
+  end
+  
 end

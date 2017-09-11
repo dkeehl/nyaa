@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @torrent.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-1">Category:</div>
+      <div class="col-md-5">
+        <%= link_to @torrent.category.name, "#" %>
+        -
+        <%= link_to @torrent.sub_category.name, '#' %>
+      </div>
+      <div class="col-md-1">Date:</div>
+      <div class="col-md-5" title="<%= "#{time_ago_in_words @torrent.created_at} ago" %>">
+        <%= @torrent.created_at_short %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Submitter:</div>
+      <div class="col-md-5">
+        <%= link_to 'NyaaTorrents', '/' %>
+      </div>
+      <div class="col-md-1">Seeders:</div>
+      <div class="col-md-5">
+        <span style="color: green;"><%= @torrent.seeders %></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Information:</div>
+      <div class="col-md-5">
+        <% information = @torrent.information %>
+        <%= information ? link_to(information, information) : 'No information' %>
+      </div>
+      <div class="col-md-1">Leechers:</div>
+      <div class="col-md-5">
+        <span style="color: red;"><%= @torrent.leechers %></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">File size:</div>
+      <div class="col-md-5">
+        <%= @torrent.size %>
+      </div>
+      <div class="col-md-1">Completed:</div>
+      <div class="col-md-5">
+        <%= @torrent.downloads %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-6 col-md-1">Info hash:</div>
+      <div class="col-md-5">
+        <kbd><%= @torrent.torrent_hash %></kbd>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a href="<%= @torrent.download_link %>">
+      <%= fa_icon 'fw download', text: 'Download torrent' %>
+    </a>
+    or
+    <a href="<%= @torrent.magnet_link %>">
+      <%= fa_icon 'fw magnet', text: 'Magnet' %>
+    </a>
+  </div>
+</div>

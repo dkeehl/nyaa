@@ -21,7 +21,7 @@
       
   <td class="text-center"><%= torrent.size %></td>
   <td class="text-center" title="<%= "#{time_ago_in_words torrent.created_at} ago" %>">
-    <%= torrent.created_at.strftime "%Y-%m-%d %H:%m" %>
+    <%= torrent.created_at_short %>
   </td>
   <td class="text-center" style="color: green;"><%= torrent.seeders %></td>
   <td class="text-center" style="color: red;"><%= torrent.leechers %></td>
