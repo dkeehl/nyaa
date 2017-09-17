@@ -6,24 +6,23 @@
 
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Upload</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">RSS</a></li>
+        <li><%= link_to 'Upload', new_torrent_path %></li>
+        <li><%= link_to 'About', '#' %></li>
+        <li><%= link_to 'RSS', '#' %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-user fa-fw"></i>
-            Guest
+            <%= fa_icon 'user fw', text: 'Guest' %>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#"><i class="fa fa-sign-in fa-fw"></i>Login</a>
+              <a href="#"><%= fa_icon 'sign-in fw', text: 'Login' %></a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-pencil fa-fw"></i>Register</a>
+              <a href="#"><%= fa_icon 'pencil fw', text: 'Register' %></a>
             </li>
           </ul>
         </li>
@@ -50,7 +49,7 @@
           <%= text_field_tag :q, '', placeholder: 'Search...', class: 'form-control search-bar' %>
           <div class="input-group-btn search-btn">
             <button class="btn btn-primary" type="submit">
-              <i class="fa fa-fw fa-search"></i>
+              <%= fa_icon 'fw search' %>
             </button>
           </div>
         </div>

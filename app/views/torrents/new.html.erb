@@ -1,0 +1,155 @@
+<% categories =
+  [{ name: 'Anime',
+     sub_categories: ['Anime Music Video',
+                      'English-translated',
+                      'Non-English-translated',
+                      'Raw',] },
+   { name: 'Audio',
+     sub_categories: ['Lossless',
+                      'Lossy',] },
+   { name: 'Literature',
+     sub_categories: ['English-translated',
+                      'Non-English-translated',
+                      'Raw',] },
+   { name: 'Live Action',
+     sub_categories: ['English-translated',
+                      'Idol/Promotional Video',
+                      'Non-English-translated',
+                      'Raw',] },
+   { name: 'Pictures',
+     sub_categories: ['Graphics',
+                      'Photos',] },
+   { name: 'Software',
+     sub_categories: ['Applications',
+                      'Games',] },]
+
+  markdown_cheat_sheet_url =
+    'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet'
+%>
+<h1>Upload Torrent</h1>
+<div id="upload-drop-zone">
+  <span>Drop here!</span>
+</div>
+
+<%= form_tag torrents_path do %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= label 'torrent',  'torrent_file' %> 
+        <div class="input-group">
+          <label class="input-group-btn" for="torrent_torrent_file">
+            <span class="btn btn-default">Browse...</span>
+          </label>
+          <input class="form-control" readonly="" type="text">
+        </div>
+        <div class="sr-only">
+          <%= file_field 'torrent', 'torrent_file', accept: '.torrent' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label 'torrent', 'display_name', 'Torrent display name (Optional)', class: 'control-label' %>
+        <%= text_field 'torrent', 'display_name', class: 'form-control',
+                                        placeholder: 'Display name',
+                                        title: '', value: '' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label 'torrent', 'category' %>
+        <select id="torrent_category" name="torrent[category]" class="form-control" title="">
+          <option value="">[Select a category]</option>
+          <% categories.each_with_index do |cat, i| %>
+            <option disabled="" value="<%= "#{i + 1}_0" %>"><%= cat[:name] %></option>
+            <% cat[:sub_categories].each_with_index do |sub_cat, j| %>
+              <option value="<%= "#{i + 1}_#{j + 1}" %>"><%= "#{cat[:name]} - #{sub_cat}" %></option>
+            <% end %>
+          <% end %>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label 'torrent', 'information' %>
+        <%= text_field 'torrent', 'information', class: 'form-control',
+                                       placeholder: 'Your website or IRC channel',
+                                       title: '', value: '' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label class="control-label">Torrent flags</label>
+      <br>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default active disabled" title="Upload torrent anonymously (don't display your username)">
+          <%= check_box_tag 'is_anonymous', 'y' %>
+          <span class="glyphicon glyphicon-ban-circle"></span>
+          Anonymous
+        </label>
+        <label class="btn btn-grey" title="Hide torrent from listing">
+          <%= check_box_tag 'is_hidden', 'y' %>
+          <span class="glyphicon glyphicon-unchecked"></span>
+          <span class="glyphicon glyphicon-check"></span>
+          Hidden
+        </label>
+      </div>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-danger" title="This torrent is derived from another release">
+          <%= check_box_tag 'is_remake', 'y' %>
+          <span class="glyphicon glyphicon-unchecked"></span>
+          <span class="glyphicon glyphicon-check"></span>
+          Remake
+        </label>
+        <label class="btn btn-warning" title="This torrent is a complete batch (eg. season)">
+          <%= check_box_tag 'is_complete', 'y' %>
+          <span class="glyphicon glyphicon-unchecked"></span>
+          <span class="glyphicon glyphicon-check"></span>
+          Complete
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <div id="description-markdown-editor" class="markdown-editor" data-field-name="description">
+          <%= label 'torrent', 'description', class: 'control-label' %>
+          <%= link_to 'Markdown supported', markdown_cheat_sheet_url, target: '_blank', class: 'small' %>
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active" role="presentation">
+              <%= link_to 'Write', '#description-tab', :role => 'tab', :'data-toggle' => 'tab' %>
+            </li>
+            <li role="presentation">
+              <%= link_to 'Preview', '#description-preview',
+                :id => 'description-preview-tab', :role => 'tab', :'data-toggle' => 'tab' %>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div id="description-tab" class="tab-pane active" role="tabpanel">
+              <%= text_area_tag 'torrent[description]', '', id: 'entry-markdown', class: 'form-control' %>
+            </div>
+            <div id="description-preview" class="tab-pane" role="tabpanel">
+              <div class="well rendered-markdown"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= submit_tag 'Upload', class: 'btn btn-primary', data: { disable_with: false } %>
+    </div>
+  </div>
+<% end %>
